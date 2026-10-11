@@ -1,0 +1,22 @@
+name: Checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check Python syntax
+        run: python -m py_compile linkview.py install_desktop.py verify_controls.py
+      - name: Install desktop validator
+        run: sudo apt-get update && sudo apt-get install -y desktop-file-utils
+      - name: Generate and validate launcher
+        run: |
+          python install_desktop.py --output /tmp/linkview.desktop
+          desktop-file-validate /tmp/linkview.desktop

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.bak
+*.log
+.env
+.env.*
+.venv/
+core
+core.*
+diagnostics/
+recordings/
+frame-*.png

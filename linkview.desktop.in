@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=LinkView
+Comment=View your Nintendo Switch through an Elgato Cam Link
+Exec=@PYTHON@ @APP@
+Icon=@ICON@
+Terminal=false
+Categories=AudioVideo;Video;
+StartupNotify=true
